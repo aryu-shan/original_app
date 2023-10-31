@@ -1,0 +1,6 @@
+ja:
+  errors:
+    messages:
+      not_saved: "保存できませんでした"
+      blank_email: "Emailを入力してください"
+      blank_password: "Passwordを入力してください"
