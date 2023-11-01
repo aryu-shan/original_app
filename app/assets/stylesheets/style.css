@@ -211,7 +211,7 @@ figure {
  * Define consistent border, margin, and padding. */
 fieldset {
   border: 1px solid silver;
-  margin: 0 2px;
+  margin: 0 5px;
   padding: 0.35em 0.625em 0.75em;
 }
 
@@ -635,16 +635,32 @@ ul li {
 }
 
 /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+/* ↓背景画像 */
 body,
 html {
   height: 100%;
   background-image: url("/assets/backimage.jpg");
-  background-size: 100% 100%; /* 横幅と高さを100%に拡大 */
-  background-repeat: no-repeat; /* 画像を繰り返し表示しない */
-  background-position: center center; /* 画像を中央に配置 */
-  margin: 0; /* ページの余白をなくす */
-  padding: 0; /* ページのパディングをなくす */
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  background-position: center center; 
+  margin: 0; 
+  padding: 0; 
+  position: relative; /* 親要素を相対位置に設定 */
 }
+
+.overlay-image {
+  position: absolute; /* 重ねる画像を絶対位置に設定 */
+  top: 50%; /* 上端を中央に配置（必要に応じて調整）*/
+  left: 50%; /* 左端を中央に配置（必要に応じて調整）*/
+  transform: translate(-50%, -50%); /* 画像を中央に配置 */
+  z-index: 1; /* 重なり順序を指定（必要に応じて調整）*/
+}
+
+.category-btm{
+  margin-top: 20px;
+}
+
+
 
 body {
   padding-top: 60px;
@@ -708,6 +724,7 @@ form input[type="submit"] {
   transition-timing-function: linear;
 }
 
+/* ヘッダー部分 */
 .btn,
 header.header div.header__bar.row div.grid-6 a.post {
   padding: 8px 20px;
@@ -715,7 +732,7 @@ header.header div.header__bar.row div.grid-6 a.post {
   border: 2px solid #57C3E9;
   color: #57C3E9;
   font-weight: bold;
-  text-align: center;
+  text-align:center;
   border-radius: 3px;
   display: inline-block;
 }
@@ -757,13 +774,14 @@ header.header div.header__bar.row {
 }
 
 header.header div.header__bar.row h1.grid-6 {
-  font-size: 20px;
+  font-size: 30px;
   line-height: 41px;
   float: left;
 }
 
 header.header div.header__bar.row h1.grid-6 a {
   display: block;
+  color: #14804a;
 }
 
 header.header div.header__bar.row div.grid-6 {
@@ -771,11 +789,13 @@ header.header div.header__bar.row div.grid-6 {
   text-align: right;
 }
 
+
 header.header div.header__bar.row div.grid-6 a.post {
-  width: 120px;
+  width: 140px;
   display: inline-left;
   margin-left: 10px;
 }
+
 
 header.header .user_nav {
   position: relative;
@@ -1040,9 +1060,13 @@ form input[type="submit"]:hover {
 }
 
 footer {
-  margin: 30px auto;
-  padding: 10px;
-  color: #D8D8D8;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    color: #fafafa;
+  }
 }
 
 footer p {
@@ -1066,3 +1090,30 @@ footer p {
 .error-message{
   margin: 20px 0; 
 }
+
+/* ==========================================================================
+     看板
+ * ========================================================================== */
+
+ .category-btm {
+ 
+}
+
+.history-category {
+  /* history.png の位置調整 */
+  /* 例: 右に 20px、下に 10px 移動 */
+  position: relative;
+}
+
+.settings-category {
+  /* set.png の位置調整 */
+  /* 例: history.png の右下に 10px の間隔を開けて配置 */
+  position: absolute;
+  left: 600px;
+  bottom: 30px;
+}
+
+/* ==========================================================================
+     設定
+ * ========================================================================== */
+

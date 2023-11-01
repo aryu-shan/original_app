@@ -30,7 +30,7 @@ URL
 洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
 
 データベース設計	ER図を添付。
-https://gyazo.com/486b680ae91e6bd2eefd7e61e1011863
+https://gyazo.com/ed23582a2923932d675919b32b2b01a4
 
 開発環境
 Ruby
@@ -71,7 +71,6 @@ has_many :proverbs
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | #ローマ字形式の正解
 | kana_correct_answer   | string     | null: false                    | #かな形式の正解 
-| created_at            | datetime   | null: false                    | #作成日時 
 | history_info          | string     | null: false                    |
 | user                  | references | null: false, foreign_key: true |
 
@@ -87,7 +86,6 @@ has_many :typing_stats
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | 
 | kana_correct_answer   | string     | null: false                    |
-| created_at            | datetime   | null: false                    | 
 | deity_info            | string     | null: false                    |
 | user                  | references | null: false, foreign_key: true |
 
@@ -103,7 +101,6 @@ has_many :typing_stats
 | ------------------------- | -----------| ------------------------------ |
 | romaji_correct_answer     | string     | null: false                    | 
 | kana_correct_answer       | string     | null: false                    |
-| created_at                | datetime   | null: false                    | 
 | four_character_idiom_info | string     | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 
@@ -119,7 +116,6 @@ has_many :typing_stats
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | 
 | kana_correct_answer   | string     | null: false                    |
-| created_at            | datetime   | null: false                    | 
 | proverb_info          | string     | null: false                    |
 | user                  | references | null: false, foreign_key: true |
 
