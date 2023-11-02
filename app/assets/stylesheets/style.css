@@ -634,6 +634,9 @@ ul li {
   }
 }
 
+
+
+
 /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 /* ↓背景画像 */
 body,
@@ -1112,6 +1115,18 @@ footer p {
   left: 600px;
   bottom: 30px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==========================================================================
      設定
