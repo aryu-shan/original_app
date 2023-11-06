@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#edit'
   patch '/settings', to: 'settings#update'
   resources :histories, only: :index
+  resources :questions
 end

@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require_relative 'history_seed'
+
+# ここで必要な問題データを読み込む
+History.all.each do |history|
+  Question.create!(
+    question_text: history.history_info,
+    correct_answer: history.romaji_correct_answer,
+    history: history
+  )
+end

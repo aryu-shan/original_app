@@ -1,18 +1,19 @@
-   <%# TOP画面の看板一覧 %>
-   <div class="category-btm">
-     <%= link_to histories_path,class: "history-category" do %>
+<div class="category-btm">
+  <div class="history-category">
+    <%= link_to histories_path do %>
       <%= image_tag("history.png", alt: "History") %>
-       <% end %>
-      <% if current_user && current_user.input_method == "romaji" %>
-  <%= link_to settings_path(method: "kana"), class: "settings-category" do %>
-    <%= image_tag("set.png", alt: "Kana Input") %>
-  <% end %>
-<% else %>
-  <%= link_to settings_path(method: "kana"), class: "settings-category selected" do %>
-    <%= image_tag("set.png", alt: "Kana Input") %>
-  <% end %>
-<% end %>
-
-<%= link_to settings_path(method: "romaji"), class: "settings-category" do %>
-  <%= image_tag("set.png", alt: "Romaji Input") %>
-<% end %>
+    <% end %>
+  </div>
+  
+  <div class="deity-category">
+    <%= link_to "#" do %>
+      <%= image_tag("japan_god.png", alt: "Deity") %>
+    <% end %>
+  </div>
+  
+  <div class="settings-category">
+    <%= link_to settings_path(method: "romaji") do %>
+      <%= image_tag("set.png", alt: "Romaji Input") %>
+    <% end %>
+  </div>
+</div>

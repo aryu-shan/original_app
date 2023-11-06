@@ -1,0 +1,7 @@
+<h1>質問</h1>
+<p><%= @question.question_text %></p>
+
+<%= form_with url: evaluate_answer_questions_path do |form| %>
+  <%= form.text_field :user_answer, placeholder: "回答を入力してください" %>
+  <%= form.submit "回答する" %>
+<% end %>

@@ -1,10 +1,5 @@
 class HistoriesController < ApplicationController
-
   def index
-   @history=History.all
+    @question = History.order("RAND()").first
   end
-
-
-
-
 end
