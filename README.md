@@ -70,7 +70,7 @@ has_many :proverbs
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | #ローマ字形式の正解
 | kana_correct_answer   | string     | null: false                    | #かな形式の正解 
-| history_info          | string     | null: false                    |
+| history_info          | string     |                                |
 | user                  | references | null: false, foreign_key: true |
 
 ### Association
@@ -85,7 +85,7 @@ has_many :typing_stats
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | 
 | kana_correct_answer   | string     | null: false                    |
-| deity_info            | string     | null: false                    |
+| deity_info            | string     |                                |
 | user                  | references | null: false, foreign_key: true |
 
 ### Association
@@ -100,7 +100,7 @@ has_many :typing_stats
 | ------------------------- | -----------| ------------------------------ |
 | romaji_correct_answer     | string     | null: false                    | 
 | kana_correct_answer       | string     | null: false                    |
-| four_character_idiom_info | string     | null: false                    |
+| four_character_idiom_info | string     |                                |
 | user                      | references | null: false, foreign_key: true |
 
 ### Association
@@ -115,7 +115,7 @@ has_many :typing_stats
 | --------------------- | -----------| ------------------------------ |
 | romaji_correct_answer | string     | null: false                    | 
 | kana_correct_answer   | string     | null: false                    |
-| proverb_info          | string     | null: false                    |
+| proverb_info          | string     |                                |
 | user                  | references | null: false, foreign_key: true |
 
 ### Association

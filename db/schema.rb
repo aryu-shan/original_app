@@ -10,19 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_11_03_024157) do
-  create_table "histories", charset: "utf8mb4", force: :cascade do |t|
-    t.string "romaji_correct_answer", null: false
-    t.string "kana_correct_answer", null: false
-    t.string "history_info"
-=======
 ActiveRecord::Schema[7.0].define(version: 2023_11_07_064829) do
   create_table "histories", charset: "utf8mb4", force: :cascade do |t|
     t.string "romaji_correct_answer", null: false
     t.string "kana_correct_answer", null: false
-    t.string "history_info", null: false
->>>>>>> main
+    t.string "history_info"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
