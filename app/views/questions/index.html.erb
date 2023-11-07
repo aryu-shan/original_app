@@ -1,7 +1,21 @@
-<h1>質問</h1>
-<p><%= @question.question_text %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>タイピングゲーム</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="typing.css">
+  <audio src="_sound_anime_mp3_incorrect1.mp3" id="missaudio"></audio>
+  <audio src="_sound_battle_mp3_handgun-out-bullets1.mp3" id="correctaudio"></audio>
+</head>
+<body>
+  <div class="wrap">
+    <input type="button" id="start_button" value="Start">
+    <div id="count"></div>
+    <h1><div id="japanese"></div></h1>
+    <h2><div id="word"></div></h2>
+    <div id="scoredis"></div>
+  </div>
 
-<%= form_with url: evaluate_answer_questions_path do |form| %>
-  <%= form.text_field :user_answer, placeholder: "回答を入力してください" %>
-  <%= form.submit "回答する" %>
-<% end %>
+  <script src="history.js"></script>
+</body>
+</html>

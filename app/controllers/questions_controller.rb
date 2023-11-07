@@ -1,8 +1,10 @@
+
 class QuestionsController < ApplicationController
-  before_action :load_question, only: [:index, :evaluate_answer]
+  before_action :load_questions, only: [:index, :evaluate_answer]
+  before_action :initialize_score, only: [:index]
 
   def index
-    @question = Question.order("RAND()").first
+    @question = @questions.first
   end
 
   def evaluate_answer
@@ -11,17 +13,22 @@ class QuestionsController < ApplicationController
   
     # ユーザーの回答が正解と一致する場合
     if user_answer == correct_answer
-      # スコアを加算する処理を追加する（例: @score += 1）
+      @score += 1 # スコアを加算する
     end
   
     # 次の質問をランダムに取得して表示する
-    @question = Question.order("RAND()").first
+    @questions = @questions.where.not(id: @question.id).order("RAND()").limit(9)
+    @question = @questions.first
     render :index
   end
 
   private
 
-  def load_question
-    @question = Question.order("RAND()").first
+  def load_questions
+    @questions = Question.order("RAND()").limit(10)
+  end
+
+  def initialize_score
+    @score = 0
   end
 end

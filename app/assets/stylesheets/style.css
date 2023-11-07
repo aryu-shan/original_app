@@ -587,13 +587,12 @@ body,
 html {
   height: 100%;
   background-image: url("/assets/backimage.jpg");
-  background-size: 100% 100%; 
+  background-size: 100% 100vh;
   background-repeat: no-repeat;
-  background-position: center center; 
-  margin: 0; 
-  padding: 0; 
-  position: relative; /* 親要素を相対位置に設定 */
-
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 .overlay-image {
@@ -609,6 +608,30 @@ body {
   padding-top: 60px;
   
 }
+
+
+/* ==========================================================================
+     看板
+ * ========================================================================== */
+ .category-btm {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.history-category {
+  
+}
+
+.deity-category {
+
+}
+
+.settings-category {
+  flex: 0 0 100%;
+
+}
+
 
 h1,
 h2,
@@ -722,6 +745,7 @@ header.header div.header__bar.row h1.grid-6 {
   font-size: 30px;
   line-height: 41px;
   float: left;
+  
 }
 
 header.header div.header__bar.row h1.grid-6 a {
@@ -1008,7 +1032,7 @@ footer {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  color: #fafafa;
+  color: #a59898;
 }
 
 footer p {
@@ -1033,7 +1057,6 @@ footer p {
 .error-message{
   margin: 20px 0; 
 }
-
 
 
 
