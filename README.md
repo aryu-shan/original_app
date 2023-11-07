@@ -34,7 +34,7 @@ Things you may want to cover:
 | name               | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| input_method       | string | null: false | #かな入力かローマ字入力かを示すフィールド
+| input_method       | string |             | #かな入力かローマ字入力かを示すフィールド
 
 ### Association
 has_many:scores

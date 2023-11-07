@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>歴史一覧</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #080808;
+      height: 100vh; /* 画面の高さを100%に設定 */
+      margin: 0;
+    }
+
+.history_box {
+  width: 800px;  /* 枠線の横の大きさ調整*/
+  height: 300px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 5px solid #FFFFFF;
+  border-radius: 10px;
+  margin-bottom:300px; /* 上部のマージンを調整 */
+   position: relative;
+}
+
+.history_box p {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+
+.links {
+  position: fixed; 
+  bottom: 60px; /* 下部からの距離を設定 */
+  left: 50%; /* 画面中央に配置 */
+  transform: translateX(-50%); /* 中央に配置した要素を水平方向に真ん中に移動 */
+  display: flex;
+ }
+
+    .change-page-btn { 
+      font-size: 30px;
+      font-weight: bold; /* 文字を太字にする */
+      text-decoration: none;
+      color:#666 ;
+      margin: 0 50px; /* ボタン間の間隔を設定 */
+      white-space: nowrap;
+    }
+ </style>
+</head>
+<body>
+<div class="history_box">
+  <p>ここでは<b>「歴史人物名」</b>を入力していきます。
+  <br>しかも時代は関係なくランダムに出題されます。
+  <br>いろんな時代にタイムスリップするので、時代酔いしないよう
+  <br>十分にご注意くださいませ。
+  </p>
+ <div class="links">
+    <a href="/" class="change-page-btn">
+      ＜ TOPへ戻る
+    </a>
+    <a href="#" class="change-page-btn">
+      進む ＞
+    </a>
+   </div> 
+  </div>
+  </body>
+</html>
