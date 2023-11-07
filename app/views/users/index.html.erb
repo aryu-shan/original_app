@@ -1,0 +1,20 @@
+   <%# TOP画面の看板一覧 %>
+<div class="category-btm">
+  <div class="history-category">
+    <%= link_to histories_path do %>
+      <%= image_tag("history.png", alt: "History") %>
+    <% end %>
+  </div>
+  
+  <div class="deity-category">
+    <%= link_to "#" do %>
+      <%= image_tag("japan_god.png", alt: "Deity") %>
+    <% end %>
+  </div>
+  
+  <div class="settings-category">
+    <%= link_to settings_path(method: "romaji") do %>
+      <%= image_tag("set.png", alt: "Romaji Input") %>
+    <% end %>
+  </div>
+</div>
