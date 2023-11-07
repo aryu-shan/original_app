@@ -47,7 +47,6 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 
 
-
 ## users テーブル
 
 | Column             | Type   | Options     |
@@ -188,5 +187,3 @@ has_many :typing_stats
 - belongs_to :four_character_idiom
 - belongs_to :proverb
 - belongs_to :score
-
-

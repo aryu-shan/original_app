@@ -1,4 +1,3 @@
-
 html {
   font-family: sans-serif;
   /* 1 */
@@ -609,18 +608,17 @@ body {
   
 }
 
-
 /* ==========================================================================
      看板
  * ========================================================================== */
  .category-btm {
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
 
 }
 
 .history-category {
-  
 }
 
 .deity-category {
@@ -629,6 +627,7 @@ body {
 
 .settings-category {
   flex: 0 0 100%;
+<<<<<<< HEAD
 
 }
 
@@ -1034,6 +1033,7 @@ footer {
   text-align: center;
   color: #a59898;
 }
+
 
 footer p {
   text-align: center;

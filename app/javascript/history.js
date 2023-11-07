@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
   var word_char;
   var random;
   var newline;
-
   var wordElement = document.getElementById("word");
   var japaneseElement = document.getElementById("japanese");
   var countElement = document.getElementById("count");
