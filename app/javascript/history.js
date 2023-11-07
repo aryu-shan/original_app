@@ -19,10 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
   var startButton = document.getElementById("start_button");
 
 
-  var missaudio = new Audio("_sound_anime_mp3_incorrect1.mp3");
-  var correctaudio = new Audio("_sound_battle_mp3_handgun-out-bullets1.mp3");
-
-
   startButton.addEventListener("click", ready);
 
 

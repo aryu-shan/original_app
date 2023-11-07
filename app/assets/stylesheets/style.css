@@ -660,6 +660,28 @@ body {
   
 }
  
+/* ==========================================================================
+     看板
+ * ========================================================================== */
+ .category-btm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history-category {
+}
+
+.deity-category {
+
+}
+
+.settings-category {
+  flex: 0 0 100%;
+}
+
+
+
+
  h1,
  h2,
  h3,
@@ -767,10 +789,12 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
    font-size: 20px;
    line-height: 41px;
    float: left;
+
  }
  
  header.header div.header__bar.row h1.grid-6 a {
    display: block;
+   color:#0ec908
  }
  
  header.header div.header__bar.row div.grid-6 {
@@ -779,7 +803,7 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
  }
  
  header.header div.header__bar.row div.grid-6 a.post {
-   width: 120px;
+   width: 130px;
    display: inline-left;
    margin-left: 10px;
  }
