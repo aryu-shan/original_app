@@ -10,17 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
   var word_char;
   var random;
   var newline;
-
-
   var wordElement = document.getElementById("word");
   var japaneseElement = document.getElementById("japanese");
   var countElement = document.getElementById("count");
   var scoredisElement = document.getElementById("scoredis");
   var startButton = document.getElementById("start_button");
 
+  var missaudio = new Audio("_sound_anime_mp3_incorrect1.mp3");
+  var correctaudio = new Audio("_sound_battle_mp3_handgun-out-bullets1.mp3");
 
   startButton.addEventListener("click", ready);
-
 
   function ready() {
     readytime = 3;
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }, 1000);
   }
-
 
   function gameStart() {
     score = 0;
@@ -53,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000);
   }
 
-
   function wordDisplay() {
     random = Math.floor(Math.random() * wordlist.length);
     wordElement.innerHTML = wordlist[random];
@@ -61,11 +58,9 @@ document.addEventListener("DOMContentLoaded", function() {
     charInsort();
   }
 
-
   function charInsort() {
     word_char = wordlist[random].charAt(char_num);
   }
-
 
   document.addEventListener("keydown", function(e) {
     var keyStr = String.fromCharCode(e.keyCode).toLowerCase();
@@ -87,13 +82,11 @@ document.addEventListener("DOMContentLoaded", function() {
       mistake++;
     }
 
-
     if (char_num == wordlist[random].length) {
       char_num = 0;
       wordDisplay();
     }
   });
-
 
   function finish() {
     score = Math.floor(Math.pow(correct, 2) * Math.pow((correct / (correct + mistake)), 5));
