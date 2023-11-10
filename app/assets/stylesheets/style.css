@@ -593,21 +593,16 @@ body {
  .category-btm {
   display: flex;
   flex-wrap: wrap;
-<<<<<<< HEAD
-
 }
 
 .history-category {
 }
 
 .deity-category {
-
 }
 
 .settings-category {
   flex: 0 0 100%;
-<<<<<<< HEAD
-
 }
 
 
@@ -1011,51 +1006,6 @@ footer p {
 /* ==========================================================================
      ゲーム画面
  * ========================================================================== */
-
-
-#typing-start {
-  font-family: Meiryo, Arial, sans-serif;
-  text-align: center;
-  padding: 20px 6px 5px;
-  background-color: #fff2d8;
-  border: 1px solid #ffd687;
-  border-radius: 3px;
-}
-
-#typing-start p {
-  font-size: 15px;
-  margin: 0 0 15px;
-}
-
-#typing-start p+p {
-  margin: 0;
-}
-
-#typing-start .note {
-  font-size: 14px;
-}
-
-#typing-start .msg {
-  color: tomato;
-}
-
-#open-button {
-  display: block;
-  width: 308px;
-  height: 48px;
-  font-size: 17px;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(0deg, #ffb500, #ffcf00);
-  border: 0;
-  border-radius: 3em;
-  margin: 20px auto 30px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  overflow: hidden;
-  cursor: pointer;
-  appearance: none;
-}
-
 #game-overlay {
   position: absolute;
   top: 0;
@@ -1151,6 +1101,8 @@ footer p {
   width: 728px;
   height: 470px;
   color: #636363;
+  background: #fff;
+  margin-left: 30%;
 }
 
 #game-view1 {
@@ -1158,6 +1110,7 @@ footer p {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+  background-color: #fff;
 }
 
 #game-title {
@@ -1252,6 +1205,7 @@ footer p {
 
 #game-view2 {
   display: none;
+  background-color: #fff;
 }
 
 #text-container {

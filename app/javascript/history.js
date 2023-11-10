@@ -8,9 +8,6 @@
   const button4 = document.getElementById('replay-button');
   const button5 = document.getElementById('close-button2');
   const view1 = document.getElementById('game-view1');
-  const gameFunc = document.getElementById('game-func');
-  const onBtns = gameFunc.querySelectorAll('.on-btn');
-  const offBtns = gameFunc.querySelectorAll('.off-btn');
   const view2 = document.getElementById('game-view2');
   const result = document.getElementById('game-result');
   const mScreen = document.getElementById('miss-type-screen');
@@ -21,8 +18,8 @@
   const progress = document.getElementById('progress-bar');
   const keyboard = document.getElementById('virtual-keyboard');
   const space = keyboard.querySelector('.key_space');
-  let wordJP1 = ['大塩平八郎', '千本桜', 'マトリョシカ', 'ロキ', '文学少女インセイン', 'ロストワンの号哭', 'ゴーストルール', '神っぽいな', 'エイリアンエイリアン', 'こちら、幸福安心委員会です。', '脳漿炸裂ガール', '妄想税', 'ワールズエンド・ダンスホール', 'クワガタにチョップしたらタイムスリップした']; // 表示文章
-  let wordJP2 = ['おおしおへいはちろう', 'せんぼんざくら', 'まとりょしか', 'ろき', 'ぶんがくしょうじょいんせいん', 'ろすとわんのごうこく', 'ごーすとるーる', 'かみっぽいな', 'えいりあんえいりあん', 'こちら、こうふくあんしんいいんかいです。', 'のうしょうさくれつがーる', 'もうそうぜい', 'わーるずえんど・だんすほーる', 'くわがたにちょっぷしたらたいむすりっぷした']; // ひらがな文章
+  let wordJP1 = ['大塩平八郎', '千本桜', 'マトリョシカ', 'ロキ', '森有礼', 'ロストワンの号哭', '鑑真', '神っぽいな', '松永久秀', '蘆屋道満', '脳漿炸裂ガール', '妄想税', '尼子経久', '毛利元就']; // 表示文章
+  let wordJP2 = ['おおしおへいはちろう', 'せんぼんざくら', 'まとりょしか', 'ろき', 'もりありのり', 'ろすとわんのごうこく', 'がんじん', 'かみっぽいな', 'まつながひさひで', 'あしやどうまん', 'のうしょうさくれつがーる', 'もうそうぜい', 'あまごつねひさ', 'もうりもとなり']; // ひらがな文章
   let wordRs; // ローマ字データ1
   let wordR; // ローマ字データ2
   let record; // タイプした文章の記録
@@ -41,7 +38,7 @@
   let missFlag = false;
   let isStopped = false;
   let moPlay = false;
-  let maxNum = 10; // 出題数の上限
+  let maxNum = 3; // 出題数の上限
   let random = true; // ランダム出題
   let resCmt = true; // 結果画面のコメント
   let flagR = true; // ローマ字表示
@@ -95,13 +92,7 @@
       result.style.display = 'none';
     }
 
-    let fData = localStorage.getItem('flags');
-    if (fData) {
-      fData = JSON.parse(fData);
-      for (let i = 0; i < fData.length; i++) {
-        if (!fData[i]) onBtns[i].click();
-      }
-    }
+    
 
     isFirst = false;
   }
@@ -781,14 +772,6 @@
     return res;
   }
 
-  // スイッチ処理
-  function toggle(idx, flag) {
-    if (flag) {
-      onBtns[idx].click();
-    } else {
-      offBtns[idx].click();
-    }
-  }
 
   // リプレイ処理
   function replay() {
@@ -826,24 +809,11 @@
 
   // ボタンクリック時
   button1.addEventListener('click', close);
-  
   button3.addEventListener('click', start);
   button4.addEventListener('click', replay);
   button5.addEventListener('click', close);
-  for (let i = 0; i < onBtns.length; i++) {
-    onBtns[i].addEventListener('click', () => {
-      onBtns[i].classList.remove('show');
-      offBtns[i].classList.add('show');
-      flags[i] = false;
-    });
-  }
-  for (let i = 0; i < offBtns.length; i++) {
-    offBtns[i].addEventListener('click', () => {
-      offBtns[i].classList.remove('show');
-      onBtns[i].classList.add('show');
-      flags[i] = true;
-    });
-  }
+ 
+  
 
   // キー押下時
   window.addEventListener('keydown', (event) => {
