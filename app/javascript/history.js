@@ -18,9 +18,9 @@
   const progress = document.getElementById('progress-bar');
   const keyboard = document.getElementById('virtual-keyboard');
   const space = keyboard.querySelector('.key_space');
-  let wordJP1 = ['大塩平八郎', '千本桜', 'マトリョシカ', 'ロキ', '森有礼', 'ロストワンの号哭', '鑑真', '神っぽいな', '松永久秀', '蘆屋道満', '脳漿炸裂ガール', '妄想税', '尼子経久', '毛利元就']; // 表示文章
-  let wordJP2 = ['おおしおへいはちろう', 'せんぼんざくら', 'まとりょしか', 'ろき', 'もりありのり', 'ろすとわんのごうこく', 'がんじん', 'かみっぽいな', 'まつながひさひで', 'あしやどうまん', 'のうしょうさくれつがーる', 'もうそうぜい', 'あまごつねひさ', 'もうりもとなり']; // ひらがな文章
-  let wordRs; // ローマ字データ1
+  let wordJP1 = ['大塩平八郎', '滝沢馬琴', '紫式部', '源頼光', '森有礼', '熊沢蕃山', '鑑真', '聖武天皇', '松永久秀', '蘆屋道満', '石田三成', '妄想税', '尼子経久', '毛利元就']; // 表示文章
+  let wordJP2 = ['おおしおへいはちろう', 'たきざわばきん', 'むらさきしきぶ', 'みなもとのらいこう', 'もりありのり', 'くまざわばんざん', 'がんじん', 'しょうむてんのう', 'まつながひさひで', 'あしやどうまん', 'いしだみつなり', 'もうそうぜい', 'あまごつねひさ', 'もうりもとなり']; // ひらがな文章
+  let wordRs; // ローマ字データ1頼光
   let wordR; // ローマ字データ2
   let record; // タイプした文章の記録
   let recordHTML;
@@ -44,9 +44,8 @@
   let flagR = true; // ローマ字表示
   let flagK = true; // かな表示
   let flagG = true; // キーガイド
-  let flagW = true; // リアルタイムのWPM
   let flagS = true; // スピードバー
-  let flags = [flagR, flagK, flagG, flagW, flagS];
+  let flags = [flagR, flagK, flagG, flagS];
   let ridx, limit, begin, count, idx1, idx2, pattern, temp, correct, miss;
   let over1, over2, over3, left1, left2, left3;
 
@@ -110,9 +109,8 @@
     flagR = flags[0];
     flagK = flags[1];
     flagG = flags[2];
-    flagW = flags[3];
     flagS = flags[4];
-    flags = [flagR, flagK, flagG, flagW, flagS];
+    flags = [flagR, flagK, flagG, flagS];
     localStorage.setItem('flags', JSON.stringify(flags));
   }
 
@@ -202,23 +200,6 @@
       style += '#kana > div {opacity: 0;}';
     }
     document.getElementById('custom-css').innerHTML = style;
-
-    if (flagW) {
-      const cWPM = document.getElementById('current-wpm');
-      cWPM.style.display = 'block';
-      cWPM.innerHTML = 'WPM: 0.00';
-      const id = setInterval(() => {
-        let time = new Date() - begin;
-        let speed = correct / time * 60 * 1000;
-        if (playing) {
-          cWPM.innerHTML = 'WPM: ' + speed.toFixed(2);
-        } else {
-          clearInterval(id);
-          cWPM.innerHTML = '';
-          cWPM.style.display = 'none';
-        }
-      }, 100);
-    }
 
     if (flagS) {
       const speedBar = document.getElementById('speed-bar');
@@ -371,7 +352,6 @@
     html += '<li><div class="title">入力時間</div><div class="data">' + convTime(time) + '</div></li>';
     html += '<li><div class="title">入力文字数</div><div class="data">' + correct + '</div></li>';
     html += '<li><div class="title">ミス入力数</div><div class="data">' + miss + '</div></li>';
-    html += '<li><div class="title">WPM</div><div class="data">' + convStr(speed.toFixed(2)) + '</div></li>';
     html += '<li><div class="title">正確率</div><div class="data">' + convStr((accuracy * 100).toFixed(2)) + '%</div></li>';
     html += '<li><div class="title">苦手キー</div><div class="data">' + getWeaks(weakKeys) + '</div></li>';
     html += '</ul>';
