@@ -2,8 +2,6 @@
   const overlay = document.createElement('div');
   overlay.id = 'game-overlay';
   const game = document.getElementById('game-screen');
-  const button1 = document.getElementById('close-button1');
-  const button2 = document.getElementById('open-button')
   const button3 = document.getElementById('start-button');
   const button4 = document.getElementById('replay-button');
   const button5 = document.getElementById('close-button2');
@@ -18,9 +16,9 @@
   const progress = document.getElementById('progress-bar');
   const keyboard = document.getElementById('virtual-keyboard');
   const space = keyboard.querySelector('.key_space');
-  let wordJP1 = ['大塩平八郎', '滝沢馬琴', '紫式部', '源頼光', '森有礼', '熊沢蕃山', '鑑真', '聖武天皇', '松永久秀', '蘆屋道満', '石田三成', '妄想税', '尼子経久', '毛利元就']; // 表示文章
-  let wordJP2 = ['おおしおへいはちろう', 'たきざわばきん', 'むらさきしきぶ', 'みなもとのらいこう', 'もりありのり', 'くまざわばんざん', 'がんじん', 'しょうむてんのう', 'まつながひさひで', 'あしやどうまん', 'いしだみつなり', 'もうそうぜい', 'あまごつねひさ', 'もうりもとなり']; // ひらがな文章
-  let wordRs; // ローマ字データ1頼光
+  let wordJP1 = ['大塩平八郎', '滝沢馬琴', '紫式部', '源頼光', '森有礼', '熊沢蕃山', '鑑真', '聖武天皇', '松永久秀', '蘆屋道満', '石田三成', '西郷隆盛', '尼子経久', '毛利元就']; // 表示文章
+  let wordJP2 = ['おおしおへいはちろう', 'たきざわばきん', 'むらさきしきぶ', 'みなもとのらいこう', 'もりありのり', 'くまざわばんざん', 'がんじん', 'しょうむてんのう', 'まつながひさひで', 'あしやどうまん', 'いしだみつなり', 'さいごうたかもり', 'あまごつねひさ', 'もうりもとなり']; // ひらがな文章
+  let wordRs; // ローマ字データ1
   let wordR; // ローマ字データ2
   let record; // タイプした文章の記録
   let recordHTML;
@@ -776,7 +774,7 @@
 
     const active = keyboard.querySelector('.active');
     if (active) active.classList.remove('active');
-
+    document.getElementById('typing-start').style.display = 'block';
     view2.style.display = 'none';
     result.style.display = 'none';
     example.innerHTML = '';
@@ -785,16 +783,21 @@
     progress.style.transform = 'none';
     overlay.style.display = 'none';
     game.style.display = 'none';
-  }
 
+ // 遷移処理を追加
+ if (isFirst) {
+  // 最初のスタート画面に遷移する処理
+  view1.style.display = 'table-cell';
+  view2.style.display = 'none';
+  result.style.display = 'none';
+    }
+   }
   // ボタンクリック時
-  button1.addEventListener('click', close);
   button3.addEventListener('click', start);
   button4.addEventListener('click', replay);
-  button5.addEventListener('click', close);
+  document.getElementById('close-button2').addEventListener('click', close);
  
   
-
   // キー押下時
   window.addEventListener('keydown', (event) => {
     let key = event.key;
