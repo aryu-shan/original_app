@@ -240,27 +240,6 @@ input[type="radio"] {
 }
 
 /*
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof). */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box;
-}
-
-/*
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X. */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
  * Remove inner padding and border in Firefox 4+. */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -614,21 +593,16 @@ body {
  .category-btm {
   display: flex;
   flex-wrap: wrap;
-<<<<<<< HEAD
-
 }
 
 .history-category {
 }
 
 .deity-category {
-
 }
 
 .settings-category {
   flex: 0 0 100%;
-<<<<<<< HEAD
-
 }
 
 
@@ -705,7 +679,7 @@ header.header div.header__bar.row div.grid-6 a.post {
 .btn:hover,
 header.header div.header__bar.row div.grid-6 a.post:hover {
   border-color: #9bdbf2;
-  color: #9bdbf2;
+  color: #9bf2bf;
 }
 
 .title {
@@ -985,7 +959,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #57C3E9;
+  background-color: #59c500;
   border-radius: 20px;
   color: #fff;
   border: 0;
@@ -993,7 +967,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-  background-color: #84d3ef;
+  background-color: #84efa4;
 }
 
 .container {
@@ -1012,19 +986,6 @@ form input[type="submit"]:hover {
   color: #666;
 }
 
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-}
-
-.comments a {
-  color: #57C3E9;
-}
-
-.comments a:hover {
-  text-decoration: underline;
-}
-
 footer {
   position: fixed;
   bottom: 0;
@@ -1034,29 +995,892 @@ footer {
   color: #a59898;
 }
 
-
 footer p {
   text-align: center;
-}
-
-.search-form {
-  text-align: center;
-  padding-top: 32px;
-}
-
-.search-form .search-input {
-  width: 30%;
-  margin-right: 10px;
-}
-
-.search-form .search-btn {
-  width: 10%;
 }
 
 
 .error-message{
   margin: 20px 0; 
 }
+/* ==========================================================================
+     ゲーム画面
+ * ========================================================================== */
+#game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .8;
+  z-index: 9999;
+}
 
+#game-screen {
+  display: none;
+  position: absolute;
+  width: 748px;
+  background: #fff;
+  padding: 0 10px 10px;
+  z-index: 10000;
+}
 
+#game-screen,
+#game-screen * {
+  font-family: Meiryo, Arial, sans-serif;
+  box-sizing: border-box;
+}
 
+#game-screen ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#game-header {
+  position: relative;
+  height: 40px;
+  border-bottom: 1px solid #cacaca;
+  margin: 0 0 5px;
+}
+
+#game-header .description {
+  height: 40px;
+  font-size: 18px;
+  color: #7b7a7a;
+  line-height: 40px;
+  margin: 0 0 0 5px;
+}
+
+#game-banner {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto 5px;
+}
+
+#game-banner a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#game-body {
+  display: table;
+  width: 728px;
+  height: 470px;
+  color: #636363;
+  background: #fff;
+  margin-left: 30%;
+}
+
+#game-view1 {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+#game-title {
+  font-size: 24px;
+}
+
+#game-explain {
+  font-size: 15px;
+  padding: 0 24px;
+  margin: 12px 0 74px;
+}
+
+#start-button {
+  width: 160px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background: #057fff;
+  border: 0;
+  border-radius: 3px;
+  margin: 0 auto;
+  cursor: pointer;
+  appearance: none;
+}
+
+#game-func {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 28px;
+  line-height: 26px;
+  background-color: #f3f3f3;
+  padding: 0 12px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+  white-space: nowrap;
+}
+
+#game-func>span {
+  display: inline-block;
+  font-size: 11px;
+}
+
+#game-func .switch-btn {
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+  overflow: hidden;
+}
+
+#game-func .switch-btn:last-child {
+  margin-right: 0;
+}
+
+#game-func .switch-btn .btn {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 16px;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+  color: #fff;
+  text-align: center;
+  border: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+}
+
+#game-func .switch-btn .on-btn {
+  background-color: #2a89ff;
+}
+
+#game-func .switch-btn .off-btn {
+  background-color: #ff4032;
+}
+
+.show {
+  display: block !important;
+}
+
+#game-view2 {
+  display: none;
+  background-color: #fff;
+}
+
+#text-container {
+  position: relative;
+  max-width: 610px;
+  height: 172px;
+  border: 1px solid #d8d8d8;
+  margin: 0 auto 10px;
+  overflow: hidden;
+}
+
+#miss-type-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.2);
+  opacity: 0;
+}
+
+#miss-type-screen.missed {
+  animation: miss .2s;
+}
+
+#start-msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  line-height: 170%;
+  padding-top: 46px;
+}
+
+#start-msg p {
+  padding: 0;
+  margin: 0 0 4px;
+}
+
+#start-msg em {
+  font-size: 24px;
+  font-style: normal;
+  color: #ff9c00;
+}
+
+#countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #ff9c00;
+  font-size: 80px;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#example {
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  width: 580px;
+  height: 36px;
+  font-size: 30px;
+  line-height: 36px;
+  overflow: hidden;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+#example>div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  white-space: nowrap;
+}
+
+#kana {
+  position: absolute;
+  left: 15px;
+  top: 73px;
+  width: 580px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  overflow: hidden;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+#kana>div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  white-space: nowrap;
+}
+
+#sentence {
+  position: absolute;
+  left: 15px;
+  top: 102px;
+  width: 580px;
+  height: 30px;
+  font-size: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+#sentence>div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  white-space: nowrap;
+}
+
+#sentence .typed {
+  color: #ffd0a6;
+}
+
+#progress-bar {
+  position: absolute;
+  bottom: 1px;
+  left: 5px;
+  width: calc(100% - 10px);
+  height: 4px;
+  background-color: #bcbcbc;
+  transform-origin: left top;
+}
+
+#current-wpm {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+#speed-bar {
+  display: none;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: calc(100% - 10px);
+  height: 3px;
+  background: linear-gradient(90deg, #87cefa, #ff6347);
+  transform-origin: left top;
+}
+
+.cover {
+  top: 0;
+  right: 0;
+  height: 3px;
+  background: #fff;
+  transform-origin: right top;
+}
+
+#virtual-keyboard {
+  position: relative;
+  width: 610px;
+  margin: 0 auto;
+}
+
+#virtual-keyboard div {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 34px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#virtual-keyboard div.key_1 {
+  top: 0;
+  left: 41px;
+}
+
+#virtual-keyboard div.key_2 {
+  top: 0;
+  left: 82px;
+}
+
+#virtual-keyboard div.key_3 {
+  top: 0;
+  left: 123px;
+}
+
+#virtual-keyboard div.key_4 {
+  top: 0;
+  left: 164px;
+}
+
+#virtual-keyboard div.key_5 {
+  top: 0;
+  left: 205px;
+}
+
+#virtual-keyboard div.key_6 {
+  top: 0;
+  left: 246px;
+}
+
+#virtual-keyboard div.key_7 {
+  top: 0;
+  left: 287px;
+}
+
+#virtual-keyboard div.key_8 {
+  top: 0;
+  left: 328px;
+}
+
+#virtual-keyboard div.key_9 {
+  top: 0;
+  left: 369px;
+}
+
+#virtual-keyboard div.key_0 {
+  top: 0;
+  left: 410px;
+}
+
+#virtual-keyboard div.key_hyphen {
+  top: 0;
+  left: 451px;
+}
+
+#virtual-keyboard div.deco_key2 {
+  top: 0;
+  left: 492px;
+}
+
+#virtual-keyboard div.deco_key3 {
+  top: 0;
+  left: 533px;
+}
+
+#virtual-keyboard div.deco_key4 {
+  top: 0;
+  left: 574px;
+}
+
+#virtual-keyboard div.deco_key5 {
+  top: 41px;
+  width: 56px;
+}
+
+#virtual-keyboard div.key_q {
+  top: 41px;
+  left: 61px;
+}
+
+#virtual-keyboard div.key_w {
+  top: 41px;
+  left: 102px;
+}
+
+#virtual-keyboard div.key_e {
+  top: 41px;
+  left: 143px;
+}
+
+#virtual-keyboard div.key_r {
+  top: 41px;
+  left: 184px;
+}
+
+#virtual-keyboard div.key_t {
+  top: 41px;
+  left: 225px;
+}
+
+#virtual-keyboard div.key_y {
+  top: 41px;
+  left: 266px;
+}
+
+#virtual-keyboard div.key_u {
+  top: 41px;
+  left: 307px;
+}
+
+#virtual-keyboard div.key_i {
+  top: 41px;
+  left: 348px;
+}
+
+#virtual-keyboard div.key_o {
+  top: 41px;
+  left: 389px;
+}
+
+#virtual-keyboard div.key_p {
+  top: 41px;
+  left: 430px;
+}
+
+#virtual-keyboard div.key_atmark {
+  top: 41px;
+  left: 471px;
+}
+
+#virtual-keyboard div.deco_key6 {
+  top: 41px;
+  left: 512px;
+}
+
+#virtual-keyboard div.key_Enter {
+  top: 41px;
+  left: 553px;
+  width: 57px;
+  height: 77px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 21px 100%, 21px 36px, 0 36px);
+}
+
+#virtual-keyboard div.key_Enter:after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 34px;
+  left: 0;
+  width: 20px;
+  height: 41px;
+  border-top: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+}
+
+#virtual-keyboard div.deco_key7 {
+  top: 82px;
+  width: 76px;
+}
+
+#virtual-keyboard div.key_a {
+  top: 82px;
+  left: 81px;
+}
+
+#virtual-keyboard div.key_s {
+  top: 82px;
+  left: 122px;
+}
+
+#virtual-keyboard div.key_d {
+  top: 82px;
+  left: 163px;
+}
+
+#virtual-keyboard div.key_f {
+  top: 82px;
+  left: 204px;
+}
+
+#virtual-keyboard div.key_g {
+  top: 82px;
+  left: 245px;
+}
+
+#virtual-keyboard div.key_h {
+  top: 82px;
+  left: 286px;
+}
+
+#virtual-keyboard div.key_j {
+  top: 82px;
+  left: 327px;
+}
+
+#virtual-keyboard div.key_k {
+  top: 82px;
+  left: 368px;
+}
+
+#virtual-keyboard div.key_l {
+  top: 82px;
+  left: 409px;
+}
+
+#virtual-keyboard div.key_semicolon {
+  top: 82px;
+  left: 450px;
+}
+
+#virtual-keyboard div.key_colon {
+  top: 82px;
+  left: 491px;
+}
+
+#virtual-keyboard div.deco_key8 {
+  top: 82px;
+  left: 532px;
+}
+
+#virtual-keyboard div.key_lShift {
+  top: 123px;
+  left: 0;
+  width: 96px;
+}
+
+#virtual-keyboard div.key_z {
+  top: 123px;
+  left: 101px;
+}
+
+#virtual-keyboard div.key_x {
+  top: 123px;
+  left: 142px;
+}
+
+#virtual-keyboard div.key_c {
+  top: 123px;
+  left: 183px;
+}
+
+#virtual-keyboard div.key_v {
+  top: 123px;
+  left: 224px;
+}
+
+#virtual-keyboard div.key_b {
+  top: 123px;
+  left: 265px;
+}
+
+#virtual-keyboard div.key_n {
+  top: 123px;
+  left: 306px;
+}
+
+#virtual-keyboard div.key_m {
+  top: 123px;
+  left: 347px;
+}
+
+#virtual-keyboard div.key_comma {
+  top: 123px;
+  left: 388px;
+}
+
+#virtual-keyboard div.key_period {
+  top: 123px;
+  left: 429px;
+}
+
+#virtual-keyboard div.key_slash {
+  top: 123px;
+  left: 470px;
+}
+
+#virtual-keyboard div.deco_key9 {
+  top: 123px;
+  left: 511px;
+}
+
+#virtual-keyboard div.key_rShift {
+  top: 123px;
+  left: 552px;
+  width: 58px;
+}
+
+#virtual-keyboard div.deco_key10 {
+  top: 164px;
+  left: 0;
+  width: 56px;
+}
+
+#virtual-keyboard div.deco_key11 {
+  top: 164px;
+  left: 61px;
+}
+
+#virtual-keyboard div.deco_key12 {
+  top: 164px;
+  left: 102px;
+}
+
+#virtual-keyboard div.deco_key13 {
+  top: 164px;
+  left: 143px;
+}
+
+#virtual-keyboard div.key_space {
+  top: 164px;
+  left: 184px;
+  width: 181px;
+}
+
+#virtual-keyboard div.deco_key14 {
+  top: 164px;
+  left: 370px;
+}
+
+#virtual-keyboard div.deco_key15 {
+  top: 164px;
+  left: 411px;
+}
+
+#virtual-keyboard div.deco_key16 {
+  top: 164px;
+  left: 452px;
+  width: 56px;
+}
+
+#virtual-keyboard div.deco_key17 {
+  top: 164px;
+  left: 513px;
+}
+
+#virtual-keyboard div.deco_key18 {
+  top: 164px;
+  left: 554px;
+  width: 56px;
+}
+
+#virtual-keyboard div.active {
+  background-color: #ff9c00 !important;
+  border-color: #ff9c00 !important;
+  color: #fff !important;
+}
+
+#game-result {
+  display: none;
+  width: 728px;
+}
+
+#current-result {
+  position: relative;
+  float: left;
+  width: 590px;
+  height: 337px;
+  border: 1px solid #d0d0d0;
+  margin: 0 0 12px;
+}
+
+#game-result .result-title {
+  height: 37px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 37px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+
+#current-result .result-title {
+  color: #027fff;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#example-list {
+  position: absolute;
+  top: 49px;
+  left: 12px;
+  width: 376px;
+  height: 274px;
+  padding: 10px;
+  overflow: auto;
+  border: 1px solid #d0d0d0;
+}
+
+#example-list ul {
+  width: 354px;
+}
+
+#example-list ul li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  overflow-wrap: break-word;
+}
+
+#example-list .sentence {
+  text-transform: uppercase;
+}
+
+#example-list .miss {
+  color: #f00;
+}
+
+#game-result .result-data {
+  position: absolute;
+  width: 188px;
+  height: 298px;
+  top: 37px;
+  right: 0;
+  padding: 12px 11px 0 11px;
+  background: #f7f7f7;
+}
+
+#game-result .result-data ul li {
+  position: relative;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#game-result .result-data ul li .title {
+  position: absolute;
+  font-size: 11px;
+  height: 32px;
+  line-height: 32px;
+  top: 0;
+  left: 0;
+}
+
+#game-result .result-data ul li .data {
+  color: #027fff;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  width: 166px;
+  text-align: right;
+  font-weight: bold;
+  padding-right: 6px;
+}
+
+#game-result .result-data ul li:last-child .data {
+  text-transform: uppercase;
+}
+
+#prev-result {
+  position: relative;
+  width: 138px;
+  height: 337px;
+  float: right;
+  border-top: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#prev-result .result-title {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#prev-result .result-data {
+  width: 137px;
+}
+
+#prev-result .result-data ul li .data {
+  width: 115px;
+}
+
+#result-comment {
+  position: relative;
+  width: 728px;
+  height: 53px;
+  text-align: center;
+  border: 1px solid #d0d0d0;
+  margin: 12px 0 0;
+  clear: both;
+}
+
+#result-comment .container {
+  position: absolute;
+  width: 726px;
+  font-size: 14px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding: 0 18px;
+}
+
+#btn-area {
+  position: relative;
+  margin: 18px 0 0;
+}
+
+#game-result .btn {
+  position: absolute;
+  display: block;
+  width: 129px;
+  height: 39px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 39px;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 0;
+  appearance: none;
+}
+
+#replay-button {
+  top: 0;
+  right: 289px;
+  background-color: #027fff;
+}
+
+#close-button2 {
+  top: 0;
+  right: 0;
+  color: #7b7a7a !important;
+  background-color: #f4f5f5;
+}
+
+#miss-only-button {
+  top: 0;
+  left: 164px;
+  background-color: #23c21f;
+}
+
+@keyframes miss {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
