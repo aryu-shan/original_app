@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/static/admin/javascript/hetong.js', to: 'your_controller#your_action'
   get 'settings/romaji'
   get 'settings/kana'
   devise_for :users

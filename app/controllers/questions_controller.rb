@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     end
   
     # 次の質問をランダムに取得して表示する
-    @questions = @questions.where.not(id: @question.id).order("RAND()").limit(9)
+    @questions = @questions.where.not(id: @question.id).order("RANDOM()").limit(9)
     @question = @questions.first
     render :index
   end
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   private
 
   def load_questions
-    @questions = Question.order("RAND()").limit(10)
+    @questions = Question.order("RANDOM()").limit(10)
   end
 
   def initialize_score
@@ -32,3 +32,4 @@ class QuestionsController < ApplicationController
   end
 end
 
+#"RANDOM()"のみRANDは使用不可
