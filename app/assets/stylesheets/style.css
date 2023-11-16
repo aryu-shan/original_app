@@ -13,27 +13,6 @@ body {
   margin: 0;
 }
 
-/* ==========================================================================
- * Links
- * ========================================================================== */
-/*
- * Remove the gray background color from active links in IE 10. */
-a {
-  background: transparent;
-}
-
-/*
- * Address `outline` inconsistency between Chrome and other browsers. */
-a:focus {
-  outline: thin dotted;
-}
-
-/*
- * Improve readability when focused and also mouse hovered in all browsers. */
-a:active,
-a:hover {
-  outline: 0;
-}
 
 /* ==========================================================================
  * Typography
@@ -269,8 +248,6 @@ table {
 
 /* ==========================================================================
  * CSS SETTING
- * by Hiroaki WAKATSUKI
- * Converted 2014/2/16
  * ========================================================================== */
 *,
 *:before,
@@ -581,10 +558,8 @@ html {
   z-index: 1; /* 重なり順序を指定（必要に応じて調整）*/
 }
 
-
 body {
   padding-top: 60px;
-  
 }
 
 /* ==========================================================================
