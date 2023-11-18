@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>日本の神様一覧</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #080808;
+      height: 100vh; /* 画面の高さを100%に設定 */
+      margin: 0;
+    }
+
+.deity_box {
+  width: 850px;  /* 枠線の横の大きさ調整*/
+  height: 300px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 5px solid #FFFFFF;
+  border-radius: 10px;
+  margin-bottom:300px; /* 上部のマージンを調整 */
+   position: relative;
+}
+
+.deity_box p {
+  margin: 20px,0px;
+  padding: 0;
+  font-size: 24px;
+}
+
+.links {
+  position: fixed; 
+  bottom: 60px; /* 下部からの距離を設定 */
+  left: 50%; /* 画面中央に配置 */
+  transform: translateX(-50%); /* 中央に配置した要素を水平方向に真ん中に移動 */
+  display: flex;
+ }
+
+    .change-page-btn { 
+      font-size: 30px;
+      font-weight: bold; /* 文字を太字にする */
+      text-decoration: none;
+      color:#666 ;
+      margin: 0 50px; /* ボタン間の間隔を設定 */
+      white-space: nowrap;
+    }
+ </style>
+</head>
+
+<body>
+<div class="deity_box">
+  <p>ここでは<b>「日本の神様の名前」</b>を入力していきます。
+	<br>高天原から黄泉国の神様ごちゃまぜに出題いたします。
+  <br>また、神様によっては長大な御名の方がいらっしゃいます。
+  <br>もし、非常に長い御名をお持ちの神様に出会ってしまった場合は
+	<br>…全力で入力いたしましょう！
+  </p>
+
+<div class="links">
+  <%= link_to "＜ TOPへ戻る", root_path, class: "change-page-btn" %>
+<%= link_to "進む ＞", questions_path(@questions), class: "change-page-btn" %>
+</div>
+  </div>
+  </body>
+</html>
+

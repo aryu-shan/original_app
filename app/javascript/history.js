@@ -36,7 +36,7 @@
   let missFlag = false;
   let isStopped = false;
   let moPlay = false;
-  let maxNum = 3; // 出題数の上限
+  let maxNum = 10; // 出題数の上限
   let random = true; // ランダム出題
   let resCmt = true; // 結果画面のコメント
   let flagR = true; // ローマ字表示
