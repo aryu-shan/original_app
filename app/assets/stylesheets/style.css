@@ -1053,11 +1053,15 @@ footer p {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  background-color: #fff;
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: calc(10 * 1px) calc(10 * 1px);
+  color: #c8e4ff ;
 }
 
 #game-title {
-  font-size: 24px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #121213 ;
 }
 
 #game-explain {
