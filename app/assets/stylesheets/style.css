@@ -566,15 +566,11 @@ body {
      看板
  * ========================================================================== */
  .category-btm {
-  display: flex;
-  flex-wrap: wrap;
+  margin-bottom: 20px;
+	display: -webkit-flex;
+	display: flex;
 }
 
-.history-category {
-}
-
-.deity-category {
-}
 
 
 h1,

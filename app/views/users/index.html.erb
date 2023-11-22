@@ -1,14 +1,5 @@
    <%# TOP画面の看板一覧 %>
 <div class="category-btm">
-  <div class="history-category">
-    <%= link_to histories_path do %>
-      <%= image_tag("history.png", alt: "History") %>
-    <% end %>
-  </div>
-  
-  <div class="deity-category">
-    <%= link_to deities_path do %>
-      <%= image_tag("japan_god.png", alt: "Deity") %>
-    <% end %>
-  </div>
+ <%= link_to(histories_path) { image_tag("history.png", alt: "History") } %>
+ <%= link_to(deities_path) { image_tag("japan_god.png", alt: "Deity") } %>
 </div>
